@@ -611,7 +611,7 @@
             min-height: 120px;
         }
 
-        /* Dedicated Sacred Devotee Donation Receipt Print Styles */
+        /* Dedicated Sacred Devotee Donation Receipt & Puja Token Slip Print Styles */
         @media print {
             body {
                 background: #ffffff !important;
@@ -636,28 +636,42 @@
                 visibility: hidden !important;
             }
 
-            /* Isolate print container */
-            .print-sacred-receipt {
+            /* Remove surrounding page paddings that push cards onto page 2 */
+            main, section, .min-h-screen, .container, .page-banner-aurora, div:has(> .print-sacred-card) {
+                padding: 0 !important;
+                margin: 0 !important;
+                min-height: auto !important;
+            }
+
+            /* Isolate print container to fit strictly on 1 single page */
+            .print-sacred-receipt,
+            .print-sacred-card {
                 display: block !important;
                 visibility: visible !important;
                 width: 100% !important;
-                max-width: 800px !important;
+                max-width: 740px !important;
                 margin: 0 auto !important;
-                padding: 24px 30px !important;
-                border: 3px double #b45309 !important;
+                padding: 14px 20px 12px 20px !important;
+                border: 2.5px double #b45309 !important;
+                outline: 1.5px solid #d97706 !important;
+                outline-offset: -5px !important;
                 border-radius: 12px !important;
                 background-color: #ffffff !important;
                 box-shadow: none !important;
                 page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                page-break-after: avoid !important;
+                max-height: 275mm !important;
             }
 
-            .print-sacred-receipt * {
+            .print-sacred-receipt *,
+            .print-sacred-card * {
                 visibility: visible !important;
             }
 
             @page {
                 size: A4 portrait;
-                margin: 12mm 15mm;
+                margin: 8mm 10mm;
             }
         }
     </style>
@@ -668,7 +682,7 @@
     <div id="root"></div>
 
     <!-- Pre-compiled Ultra-Fast Production JS (Zero Babel Delay, 120 FPS) -->
-    <script src="app.min.js?v=61" defer></script>
+    <script src="app.min.js?v=78" defer></script>
 </body>
 
 </html>

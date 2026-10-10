@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "build": "npx esbuild app.jsx --minify --bundle=false --outfile=app.min.js"
+    "build": "npx esbuild app.jsx --minify --charset=utf8 --bundle=false --outfile=app.min.js"
   },
   "keywords": [
     "manasa",

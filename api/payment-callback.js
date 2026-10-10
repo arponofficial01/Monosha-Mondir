@@ -41,7 +41,7 @@ module.exports = async (req, res) => {
   const data = { ...query, ...body };
 
   const status = (data.pay_status || data.status || data.status_code || '').toString().toLowerCase();
-  const isSuccess = status === 'successful' || status === 'completed' || status === 'success' || status === '2';
+  const isSuccess = status === 'successful' || status === 'completed' || status === 'success' || status === '2' || (data.invoice_id && status !== 'failed' && status !== 'cancelled' && status !== 'canceled');
 
   const tranId = data.mer_txnid || data.tran_id || data.invoice_id || '';
   const bankTrxid = data.bank_trxid || data.pg_txnid || data.trx_id || '';
